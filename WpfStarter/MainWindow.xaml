@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfStarter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodels="clr-namespace:WpfStarter.ViewModels"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        WindowStartupLocation="CenterScreen"
+        Height="450" 
+        Width="800"
+        ResizeMode="NoResize">
+    <Grid>
+        <StackPanel Orientation="Vertical" Width="350" HorizontalAlignment="Center" Margin="0 30 0 0">
+            <ui:TextBox Icon="Person16" Margin="10" PlaceholderText="UserName" Text="{Binding UserName}"  />
+            <ui:PasswordBox Icon="Key16" Margin="10" PlaceholderText="Password" Text="{Binding Password}"  />
+
+            <ui:Button Appearance="Primary" Content="Login" Margin="10" Command="{Binding LoginCommand}" Cursor="Hand" />
+        </StackPanel>
+    </Grid>
+</Window>
+    
