@@ -9,12 +9,10 @@ namespace WpfStarter
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly IAuthorizationService _authorizationService;
-        public MainWindow( IAuthorizationService authorizationService)
+        public MainWindow(MainViewModel dataContext)
         {
-            _authorizationService = authorizationService;
             InitializeComponent();
-            this.DataContext = new MainViewModel();
+            this.DataContext = dataContext;
         }
     }
 }

@@ -7,7 +7,7 @@ namespace WpfStarter.Services
     {
         public Task<bool> Login(LoginModel model)
         {
-            return Task.FromResult(true);
+            return Task.FromResult(model.UserName == "admin" && model.Password == "admin");
         }
     }
 }

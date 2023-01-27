@@ -15,7 +15,7 @@
     <Grid>
         <StackPanel Orientation="Vertical" Width="350" HorizontalAlignment="Center" Margin="0 30 0 0">
             <ui:TextBox Icon="Person16" Margin="10" PlaceholderText="UserName" Text="{Binding UserName}"  />
-            <ui:PasswordBox Icon="Key16" Margin="10" PlaceholderText="Password" Text="{Binding Password}"  />
+            <ui:TextBox Icon="Key16" Margin="10" PlaceholderText="Password" Text="{Binding Password}" />
 
             <ui:Button Appearance="Primary" Content="Login" Margin="10" Command="{Binding LoginCommand}" Cursor="Hand" />
         </StackPanel>

@@ -2,11 +2,27 @@
 using CommunityToolkit.Mvvm.Input;
 using System.Windows;
 using System.Windows.Input;
+using WpfStarter.Services;
 
 namespace WpfStarter.ViewModels
 {
     public class MainViewModel : ObservableObject
     {
+        private readonly IAuthorizationService _authorizationService;
+
+        public MainViewModel(IAuthorizationService authorizationService)
+        {
+            _authorizationService = authorizationService;
+
+            LoginCommand = new AsyncRelayCommand(async () =>
+            {
+                var authResult = await _authorizationService.Login(new Models.Security.LoginModel(UserName!, Password!));
+
+                MessageBox.Show($"You entered following credentials. \n\nUserName: {UserName}\nPassword: {Password}\nAuth Result: {authResult}", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            });
+        }
+
+
         private string? _userName;
         private string? _password;
 
@@ -24,12 +40,5 @@ namespace WpfStarter.ViewModels
             get => _password;
             set => SetProperty(ref _password, value);
         }
-
-
-        public MainViewModel()
-        {
-            LoginCommand = new RelayCommand(() => { MessageBox.Show($"You entered following credentials. \n\nUserName: {UserName}\nPassword: {Password}", "Information", MessageBoxButton.OK, MessageBoxImage.Information); });
-        }
-
     }
 }

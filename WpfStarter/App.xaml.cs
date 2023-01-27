@@ -2,6 +2,7 @@
 using System;
 using System.Windows;
 using WpfStarter.Services;
+using WpfStarter.ViewModels;
 
 namespace WpfStarter
 {
@@ -24,6 +25,7 @@ namespace WpfStarter
         private void ConfigureServices(ServiceCollection services)
         {
             services.AddScoped<IAuthorizationService, AuthorizationService>();
+            services.AddScoped<MainViewModel>();
             services.AddSingleton<MainWindow>();
         }
 
