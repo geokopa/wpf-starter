@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using System;
 using System.Windows;
 using WpfStarter.Services;
@@ -24,6 +26,8 @@ namespace WpfStarter
 
         private void ConfigureServices(ServiceCollection services)
         {
+            services.AddLogging(configure => configure.AddConsole())
+                .AddTransient<App>();
             services.AddScoped<IAuthorizationService, AuthorizationService>();
             services.AddScoped<MainViewModel>();
             services.AddSingleton<MainWindow>();

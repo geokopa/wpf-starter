@@ -1,6 +1,7 @@
 ﻿using WpfStarter.ViewModels;
 using System.Windows;
 using WpfStarter.Services;
+using Microsoft.Extensions.Logging;
 
 namespace WpfStarter
 {
@@ -9,10 +10,13 @@ namespace WpfStarter
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow(MainViewModel dataContext)
+        private readonly ILogger<MainWindow> _logger;
+
+        public MainWindow(MainViewModel dataContext, ILogger<MainWindow> logger)
         {
             InitializeComponent();
             this.DataContext = dataContext;
+            this._logger = logger;
         }
     }
 }
